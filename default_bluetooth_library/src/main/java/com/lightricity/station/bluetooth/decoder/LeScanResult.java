@@ -45,11 +45,11 @@ public class LeScanResult {
                     ADManufacturerSpecific es = (ADManufacturerSpecific) structure;
                     //Search for the ID company of lightricity
 
-<<<<<<< HEAD
+
                     if (es.getCompanyId() == 0x0A96) {
-=======
+
                     if (es.getCompanyId() == 0x0A96 || es.getCompanyId() == 0x004C) {
->>>>>>> a69581708b3878b952e2028bba57a54bc2f99870
+
                         tag = from(this.device.getAddress(), null, this.scanData, this.rssi);
                     }
                 }
@@ -68,7 +68,7 @@ public class LeScanResult {
             rawData = parseByteDataFromB64(data);
             decoder = new DecodeFormat2and4();
         } else if (rawData != null) {
-<<<<<<< HEAD
+
             int FrameType = rawData[PROTOCOL_OFFSET];
             switch (FrameType){
                 case 0: decoder=null;
@@ -76,7 +76,7 @@ public class LeScanResult {
                 case 1: decoder= new decodeFrameType1();
                 break;
                 default : new decodeFrameType1();
-=======
+
             if (rawData[PROTOCOL_OFFSET - 1] == 0x4C && rawData[PROTOCOL_OFFSET] == 0x00) {
                 decoder = new DecodeFormatNoModzee();
             } else {
@@ -110,7 +110,6 @@ public class LeScanResult {
                     default:
                         Timber.d("Unknown tag protocol version: %1$s (PROTOCOL_OFFSET: %2$s)", protocolVersion, PROTOCOL_OFFSET);
                 }
->>>>>>> a69581708b3878b952e2028bba57a54bc2f99870
             }
         }
 
@@ -118,11 +117,8 @@ public class LeScanResult {
             FoundSensor tag = decoder.decode(rawData, PROTOCOL_OFFSET);
             if (tag != null) {
                 tag.setId(id);
-<<<<<<< HEAD
                 tag.setFrame((int) rawData[PROTOCOL_OFFSET]);
-=======
                 tag.setSensorID(rawData[PROTOCOL_OFFSET+3]<<8 | rawData[PROTOCOL_OFFSET+4]& 0xFF);
->>>>>>> a69581708b3878b952e2028bba57a54bc2f99870
                 tag.setUrl(url);
                 tag.setRssi(rssi);
             }
