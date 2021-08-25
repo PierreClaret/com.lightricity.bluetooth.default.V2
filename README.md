@@ -26,7 +26,8 @@ dependencies {
 ```
 
 Define the project path in the settings.gradle file
-```include ':default_bluetooth_library', ':MPChartLib',':bluetooth_library'
+```
+include ':default_bluetooth_library', ':MPChartLib',':bluetooth_library'
 project(':default_bluetooth_library').projectDir=new File('../com.lightricity.bluetooth.default.V2/default_bluetooth_library')
 project(':bluetooth_library').projectDir=new File('../com.lightricity.bluetooth.V2/bluetooth_library')
 include ':app'
