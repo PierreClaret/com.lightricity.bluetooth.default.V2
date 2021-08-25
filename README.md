@@ -1,7 +1,7 @@
-# com.ruuvi.bluetooth.default
-Default implementation of Ruuvi Bluetooth library for Android
+# com.Lightricity.bluetooth.default.V2
+New version of the bluetooth library for decoding Nizar Format
 
-### Ruuvi sensor protocol specification:
+### Nizar specific format:
 https://github.com/ruuvi/ruuvi-sensor-protocols
 
 # Usage example
