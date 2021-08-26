@@ -18,6 +18,7 @@ public class decodeFrameType1 implements LeScanResult.RuuviTagDecoder{
     @Override
     public FoundSensor decode(byte[] data, int offset) {
         FoundSensor tag = new FoundSensor();
+        tag.setDataFormat("Frame Type 1");
         for (int bit=offset+1; bit< data.length; ){
             int[] Data_size_type = toBinary(data[bit]);
             int[] Data_size = SubArray(6,2,Data_size_type);
